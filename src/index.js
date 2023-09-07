@@ -27,7 +27,7 @@ document.getElementById("file").addEventListener("change", e => {
 
     //行ごとにカンマで区切り、２次元配列を作成
     lines = tmp.map(line => line.split(','))
-    console.log(lines)
+    
   });
 
   //選択されたCSVを読み込み
@@ -248,18 +248,19 @@ function countUp_quality() {
   onetime_data.push(day_id);
   alldata.push(onetime_data);
 
-  kotae[question_num] = "0";
-
-
-  for(let j=0;j<45;j++){
-    if(lines[j][3]==img_array[question_num] && lines[j][4]== 0){
-      console.log(lines[j][3]);
-      console.log(lines[j][4]);
-      kotae[question_num] = "100";
+  if(lines.length != 0){
+    kotae[question_num] = "0";
+    for(let j=0;j<45;j++){
+      if(lines[j][3]==img_array[question_num] && lines[j][4]== 0){
+        console.log(lines[j][3]);
+        console.log(lines[j][4]);
+        kotae[question_num] = "100";
+      }
     }
   }
 
-  confirm('良品と登録します。(他の回答者との合致率：'+ kotae[question_num] + '％)');
+
+  alert('良品と登録します。(他の回答者との一致率：'+ kotae[question_num] + '％)');
   /*
   var  time = new Date();
   datetime.push(time);
@@ -300,15 +301,6 @@ function countUp_quality() {
   
 }
 
-const decide = document.getElementById("defective");
-decide.addEventListener("click", () => deciside());
-function deciside() {
-  document.getElementById('quality').style.display = 'none';
-  document.getElementById('defective').style.display = 'none';
-  document.getElementById("decision").style.display = 'inline';
-  decision_cnt = 1;
- 
-}
 
 //「不良品」ボタンを押したときに次の問題を表示してデータを配列に渡す
 function countUp_defective() {
@@ -342,16 +334,19 @@ function countUp_defective() {
   onetime_data.push(day_id);
   alldata.push(onetime_data);
 
-  kotae[question_num] = "0";
-  for(let j=0;j<45;j++){
-    if(lines[j][3]==img_array[question_num] && lines[j][4]== 1){
-      console.log(lines[j][3]);
-      console.log(lines[j][4]);
-      kotae[question_num] = "100";
+  if(lines.length != 0){
+    kotae[question_num] = "0";
+    for(let j=0;j<45;j++){
+      if(lines[j][3]==img_array[question_num] && lines[j][4]== 1){
+        console.log(lines[j][3]);
+        console.log(lines[j][4]);
+        kotae[question_num] = "100";
+      }
     }
+  
   }
 
-  confirm('不良品と登録します。(他の回答者との合致率：'+ kotae[question_num] + '％)');
+  alert('不良品と登録します。(他の回答者との一致率：'+ kotae[question_num] + '％)');
  
   //document.getElementById("answer_log").innerHTML = `<p>「${result_array[question_num]}」:あなたの前回の解答は「不良品」(正答率:${crt_ans_rate(result_array)}%)</p>`;
   //document.getElementById("answer_img").innerHTML = `<img id="sample"src="src/${dataset_today}/${img_array[question_num] }.jpg"width="500px"height="168px" style="display:block;">`;
@@ -375,10 +370,6 @@ function countUp_defective() {
   }
   */
   
-
-
-
-
   document.getElementById('quality').style.display = 'inline';
   document.getElementById('defective').style.display = 'inline';
   document.getElementById("decision").style.display = 'none';
@@ -391,10 +382,22 @@ function countUp_defective() {
   c.clearRect(0, 0, 500, 168)
 }
 
+/*
+const decide = document.getElementById("defective");
+decide.addEventListener("click", () => deciside());
+function deciside() {
+  document.getElementById('quality').style.display = 'none';
+  document.getElementById('defective').style.display = 'none';
+  document.getElementById("decision").style.display = 'inline';
+  decision_cnt = 1;
+ 
+}
+*/
+
 const quality = document.getElementById("quality");
 quality.addEventListener("click", () => countUp_quality());
 
-const defective = document.getElementById("decision");
+const defective = document.getElementById("defective");
 defective.addEventListener("click", () => countUp_defective());
 
 //GASにテータ送信
@@ -673,7 +676,9 @@ for (var k =0; k<clickBtn.length; k++){
       }; 
       var txt_x = 0;
       var txt_y = 90;
+      
       for (let i = 0; i < que_cnt; i++) {
+        
         ctx.font = '15pt Arial';
         ctx.fillStyle = 'rgba(0, 0, 0)';  
         ctx.fillText(question_num-9+i+","+"選択:"+select_array[question_num-10+i], txt_x, txt_y);
@@ -701,7 +706,7 @@ for (var k =0; k<clickBtn.length; k++){
         var tgt = "target" + i;
         var element = document.getElementById( tgt ) ;
         var elements = element.myRadio;
-        if(que_dec[i]){
+        if(que_dec[question_num-10+i]){
           elements[0].checked = true;
         }else {
           elements[1].checked = true;  
