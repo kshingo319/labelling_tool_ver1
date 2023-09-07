@@ -21,8 +21,8 @@
     }
 	</style>	
 
-	
-
+	<div>ファイルを選択すると一致度を表示します</div>
+	<input id="file" type="file" accept=".csv"/>
 	<div class="block">
   		<img id="sample"alt=”画像が表示されるまでしばらくお待ちください” width="500px"height="168px" style="display:block; margin: 0 auto;"></img>
 		<div class="top">
@@ -53,7 +53,6 @@
 		<div id="popup-wrapper">
 			<div id="popup-inside">
 				<div id="message">
-					<div><button type="button"id="close">問題に戻る</button></div>
 					<h2>過去10問の評価</h2>
 					<canvas id="board" width="600px" height="500x"alt=”画像の代わりとなるテキスト入力します2” ></canvas>
 					<div id = "zoomback">
@@ -99,13 +98,13 @@
 						<label></label><input type="radio" name="myRadio" value="quality" >良品</label>
 						<label></label><input type="radio" name="myRadio" value="defective" >不良品</label>
 					</form>
+					<div><button type="button"id="close">更新</button></div>
 				</div> 
 			</div>
 		  </div>
 	</div>
 	<div id="answer_log"></div>
 	<div id="answer_img"></div>
-	<input id="file" type="file" accept=".csv"/>
 	<script type="module" src="src/index.js">
 	</script>
 </body>
