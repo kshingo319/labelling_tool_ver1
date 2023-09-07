@@ -1,0 +1,100 @@
+body {
+    font-family: sans-serif;
+    position: relative;
+    
+  }
+  
+  #zoomback {
+
+    /* 絶対位置に配置 */
+    position:absolute;
+    top:0;
+    
+    /* 画面いっぱいに */
+    width:100vw;
+    height:100vh;
+    
+    /* 背景を少し透過 */
+    background-color:rgba(0,0,0,0.8);
+    
+    /* 中のimgを中央揃え */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    display:none;
+    }
+    
+    
+    /* 拡大画像のサイズを調整 */
+    #zoomimg {
+    
+    width:50%;
+    border:solid 5px #fff;
+    }
+
+  #app {
+    text-align: center;
+  }
+  
+  .answerButton {
+    text-align: center;
+  }
+  #decision{
+    text-align: center;
+    display: none;
+  }
+  .checkButton {
+    margin: 0 auto;
+  }
+  .top{
+    height: 0px;
+  }
+  #click-btn {
+    display: block;
+    margin: 20px auto;
+    background-color: purple;
+    color: white;
+    border: 0;
+    padding: 6px 10px;
+  }
+  
+  #popup-wrapper {
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    overflow-y: scroll;
+  }
+  
+  #popup-inside {
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    background: white;
+    margin: 10% auto;
+    padding: 20px;
+    position: relative;
+  }
+  
+  #message a {
+    background: purple;
+    color: white;
+    text-decoration: none;
+    padding: 6px 10px;
+    
+  }
+
+  #close {
+/*
+    position: absolute;
+    top: 0;
+    right: 5px;
+*/
+    cursor: pointer;
+  }  
+  .checkButtonup{
+  text-align: center;
+    }

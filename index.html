@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Labeling_Tool_1</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="src/styles.css">
+</head>
+
+<body>
+
+	<div id="app">
+		<h1>No.1</h1>
+	</div>
+	
+
+	<style>
+    .block {
+
+		border: 1px solid silver;
+    }
+	</style>	
+
+	
+
+	<div class="block">
+  		<img id="sample"alt=”画像が表示されるまでしばらくお待ちください” width="500px"height="168px" style="display:block; margin: 0 auto;"></img>
+		<div class="top">
+			<canvas id="canvas" width="500px" alt=”画像の代わりとなるテキスト入力します2” height="168px" style="display:block; margin: 0 auto; position:relative; top:-170px">
+			<style>
+    			canvas {
+        			border: 1px solid silver;
+    			}
+			</style>
+		</div>
+			
+		<div class="checkButton">
+			<div class="checkButtonup" width="500px"style="display:flex;margin: 0 auto;justify-content: center;">
+
+			</div>
+			<div class="checkButtondown" width="500px"style="display:flex;margin: 0 auto;justify-content: center;">
+			</div>
+			<div class="checkButtondown" width="500px"style="display:flex;margin: 0 auto;justify-content: center;">
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="answerButton">
+		<button type="button"class="ans_btn"id="quality">良品</button>
+		<button type="button"class="dec_btn"id="defective">不良品</button>
+		<button type="button"class="ans_btn"id="decision">決定</button>
+		<div id="popup-wrapper">
+			<div id="popup-inside">
+				<div id="message">
+					<div><button type="button"id="close">問題に戻る</button></div>
+					<h2>過去10問の評価</h2>
+					<canvas id="board" width="600px" height="500x"alt=”画像の代わりとなるテキスト入力します2” ></canvas>
+					<div id = "zoomback">
+						<img id = "zoomimg" class = "zoom" src = "src/image0/1.jpg">
+					</div>
+					<form id="target0">NO.1: 
+						<label></label><input type="radio" name="myRadio" value="quality" >良品</label>
+						<label></label><input type="radio" name="myRadio" value="defective" >不良品</label>
+					</form>
+					<form id="target1">NO.2: 
+						<label></label><input type="radio" name="myRadio" value="quality" >良品</label>
+						<label></label><input type="radio" name="myRadio" value="defective" >不良品</label>
+					</form>
+					<form id="target2">NO.3: 
+						<label></label><input type="radio" name="myRadio" value="quality" >良品</label>
+						<label></label><input type="radio" name="myRadio" value="defective" >不良品</label>
+					</form>
+					<form id="target3">	NO.4: 
+						<label></label><input type="radio" name="myRadio" value="quality" >良品</label>
+						<label></label><input type="radio" name="myRadio" value="defective" >不良品</label>
+					</form>
+					<form id="target4">NO.5: 
+						<label></label><input type="radio" name="myRadio" value="quality" >良品</label>
+						<label></label><input type="radio" name="myRadio" value="defective" >不良品</label>
+					</form>
+					<form id="target5">NO.6: 
+						<label></label><input type="radio" name="myRadio" value="quality" >良品</label>
+						<label></label><input type="radio" name="myRadio" value="defective" >不良品</label>
+					</form>
+					<form id="target6">NO.7: 
+						<label></label><input type="radio" name="myRadio" value="quality" >良品</label>
+						<label></label><input type="radio" name="myRadio" value="defective" >不良品</label>
+					</form>
+					<form id="target7">NO.8: 
+						<label></label><input type="radio" name="myRadio" value="quality" >良品</label>
+						<label></label><input type="radio" name="myRadio" value="defective" >不良品</label>
+					</form>
+					<form id="target8">NO.9: 
+						<label></label><input type="radio" name="myRadio" value="quality" >良品</label>
+						<label></label><input type="radio" name="myRadio" value="defective" >不良品</label>
+					</form>
+					<form id="target9">NO.10: 
+						<label></label><input type="radio" name="myRadio" value="quality" >良品</label>
+						<label></label><input type="radio" name="myRadio" value="defective" >不良品</label>
+					</form>
+				</div> 
+			</div>
+		  </div>
+	</div>
+	<div id="answer_log"></div>
+	<div id="answer_img"></div>
+	<input id="file" type="file" accept=".csv"/>
+	<script type="module" src="src/index.js">
+	</script>
+</body>
+
+</html>
