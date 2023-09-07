@@ -643,10 +643,6 @@ for (var k =0; k<clickBtn.length; k++){
         document.getElementById("close").innerHTML = `<button type="button"id="close">訓練を終了する</button>`;
       }
       popupWrapper.style.display = "block";
-      let btn = document.createElement("button");
-
-      let target = document.getElementById("message");
-      target.appendChild(btn);
       //const target = document.getElementById("sample");
 
 
@@ -761,10 +757,10 @@ function hoge(e) {
 
 
 
-// ポップアップの外側又は戻るマークをクリックしたときポップアップを閉じる
+// ポップアップの戻るマークをクリックしたときポップアップを閉じる
 popupWrapper.addEventListener('click', e => {
 
-  if (e.target.id === popupWrapper.id || e.target.id === close.id) {
+  if (e.target.id === close.id) {
     for (let i = 0; i < que_cnt; i++) {
       var tgt = "target" + i;
       var element = document.getElementById( tgt ) ;
